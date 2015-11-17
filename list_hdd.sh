@@ -9,7 +9,7 @@ if [ -z "$localresult" ]
 echo $localresult
 }
 
-#echo "HDD	Temp	Realloc	Pending"
+echo "HDD Temp  Realloc   Pending"
 
 lsblk -io KNAME,TYPE | grep disk | awk {'print$1;}' |
 	while IFS= read -r hdd_name
@@ -18,7 +18,9 @@ lsblk -io KNAME,TYPE | grep disk | awk {'print$1;}' |
 		cmd_realloc="udisks --show-info /dev/$hdd_name | grep reallocated-sector-count | cut -c 52-63 | tr -s \" \""
 		cmd_pending="udisks --show-info /dev/$hdd_name | grep current-pending-sector | cut -c 52-63 | tr -s \" \""
 		temp=$(eval_and_return "$cmd_temp")
+		temp=$(echo "$temp" | sed 's/C/°C/g')
+		temp="+$temp"
 		realloc=$(eval_and_return "$cmd_realloc")
 		pending=$(eval_and_return "$cmd_pending")
-		echo "$hdd_name	$temp	$realloc	$pending"
+		echo "$hdd_name $temp $realloc $pending"
 	done
