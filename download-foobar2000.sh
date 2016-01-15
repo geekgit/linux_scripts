@@ -7,7 +7,7 @@ function get-full-url
 function download-main
 {
 	wget https://www.foobar2000.org/download -O download.html
-	UrlPart=$(cat download.html | grep -o -E 'href="([^"#]+)"' | cut -d'"' -f2 | sort | uniq | grep "foobar2000" | grep ".exe" | head -n1)
+	UrlPart=$(cat download.html | grep -o -E 'href="([^"#]+)"' | cut -d'"' -f2 | sort | uniq | grep "foobar2000" | grep ".exe" | sed 's|/getfile|files|g' | head -n1)
 	Url=$(get-full-url $UrlPart)
 	echo "$Url"
 	wget "$Url"
@@ -31,7 +31,7 @@ function download-plugins
 	done
 	md5sum *.fb2k-component > plugins-hash.md5
 	sha1sum *.fb2k-component > plugins-hash.sha1
-	rm components.html 
+	rm *.html 
 	cd ..
 }
 function download-plugin
@@ -41,7 +41,6 @@ function download-plugin
 	if [ -n "$Data" ]; then
 		Url=$(get-full-url $Data)
 		wget $Url
-		rm "$HTML"
 		sleep 5
 	fi
 }
