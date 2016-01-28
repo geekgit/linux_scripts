@@ -1,7 +1,6 @@
 #!/bin/bash
 function docker-remove
 {
-	echo "if_error()"
 	id="$1"
 	echo "id: $id"
 	Text=$(docker rmi "$id" 2>&1)
@@ -28,12 +27,35 @@ function docker-remove
 			fi	
 	fi
 }
+function docker-images-list
+{
+	List=$(docker images | awk {'print $3'} | tail -n +2)
+	echo $List
+}
+function docker-images-count
+{
+	List=$(docker-images-list)
+	Count=$(echo $List | tr " " "\n" | grep . | wc -l)
+	echo $Count
+}
 
-ImagesList=$(docker images -qf "dangling=true")
+ImagesList=$(docker-images-list)
+ImagesCount=$(docker-images-count)
+echo "[main] Images: |$ImagesList|"
+echo "[main] Count: $ImagesCount"
 
-for ImageId in $ImagesList
+while [ "$ImagesCount" -ge "1" ]
 do
-	echo "Image id: $ImageId"
-	docker images | grep "$ImageId"
-	docker-remove "$ImageId"
+	echo "[loop] Images: |$ImagesList|"
+	echo "[loop] Count: $ImagesCount"
+
+	for ImageId in $ImagesList
+	do
+		echo "Image id: $ImageId"
+		docker images | grep "$ImageId"
+		docker-remove "$ImageId"
+	done
+	
+	ImagesCount=$(docker-images-count)
+	ImagesList=$(docker-images-list)
 done
