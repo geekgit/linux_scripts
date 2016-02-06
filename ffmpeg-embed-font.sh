@@ -1,5 +1,5 @@
 #!/bin/bash
-File="op.mkv"
+File="$1"
 cd Fonts
 Data=$(ls)
 Dump=""
