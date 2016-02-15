@@ -9,5 +9,4 @@ echo "Print(\"FontName #$2:{\"+names[$2]+\"}\")" >> $ScriptName
 echo "Quit()" >> $ScriptName
 chmod +rx "$ScriptName"
 $ScriptName "$1"
-cat $ScriptName
 rm $ScriptName
