@@ -8,6 +8,6 @@ do
 	Filename=$(basename "$File")
 	Extension="${Filename##*.}"
 	Plain="${Filename%.*}"
-	NewName="conv-$Plain.mkv"
+	NewName="TV-$Plain.mkv"
 	ffmpeg -i $File -vcodec libx264 -preset slow -crf 22 -profile:v high -level:v 4.0 -acodec libmp3lame -ab 320k -f matroska $NewName
 done
