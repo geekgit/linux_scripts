@@ -1,4 +1,5 @@
 #!/bin/bash
+# libx264-146 -> http://packages.ubuntu.com/wily/libx264-146
 echo "obs-stable / wily"
 sudo add-apt-repository multiverse
 sudo apt-add-repository -y ppa:obsproject/obs-studio
