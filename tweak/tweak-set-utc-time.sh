@@ -8,4 +8,4 @@ echo "/etc/localtime -> /usr/share/zoneinfo/Etc/UTC"
 sudo ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
 echo 'echo "Etc/UTC" -> /etc/timezone'
-sudo sh -c 'echo "Etc/UTC" > /etc/timezone"
+sudo sh -c 'echo "Etc/UTC" > /etc/timezone'
