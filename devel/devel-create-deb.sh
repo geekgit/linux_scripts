@@ -1,6 +1,6 @@
 #!/bin/bash
-# usage: geekgit-create-deb <Source Path> <Control Path>
-# example: geekgit-create-deb /opt/some-program /root/control
+# usage: geekgit-devel-create-deb <Source Path> <Control Path>
+# example: geekgit-devel-create-deb /opt/some-program /root/control
 echo "Create deb struct..."
 PackageName=$(cat control | grep "Package:" | awk '{print $2}')
 echo "Parsed package name: $PackageName"
