@@ -1,7 +1,8 @@
 #!/bin/bash
 UUID=$(uuidgen)
 TempFixDir="$HOME/docker-fix-$UUID"
-cd $TempFixDir
+mkdir "$TempFixDir"
+cd "$TempFixDir"
 git clone https://github.com/geekgit/linux_configs
 cd linux_configs
 sudo cp ./etc/default/docker.overlayfs /etc/default/docker
