@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "config generation! [01]"
+#
+File="$HOME/$(uuidgen).conf"
+echo "Alias /webdav /home/webdav" > "$File"
+echo "<Location /webdav>" >> "$File"
+echo "Option Indexes" >> "$File"
+echo "DAV On" >> "$File"
+echo "AuthType Basic" >> "$File"
+echo 'AuthName "webdav"' >> "$File"
+echo "AuthUserFile /etc/apache2/webdav.password" >> "$File"
+echo "Require  valid-user" >> "$File"
+echo "Allow from all" >> "$File"
+echo "RewriteEngine off" >> "$File"
+echo "</Location>" >> "$File"
+cat "$File"
