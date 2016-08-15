@@ -7,8 +7,8 @@ function GetLastKernelVersion {
 	Link=$(grep -Po '(?<=href=")[^"]*' "$ListFilepath")
 	Kernel=$(echo $Link | tr " " "\n" | tail -n1)
 	Kernel=${Kernel::-1}
-	rm "$ListFilepath"
 	echo $Kernel
+	rm "$ListFilepath"
 }
 function DownloadKernel {
 	KernelVersion="$1"
@@ -34,6 +34,7 @@ function DownloadKernel {
 	geekgit-key-import-ubuntu-kernel
 	gpg --verify CHECKSUMS.gpg CHECKSUMS
 	shasum -c CHECKSUMS 2>&1 | grep OK
+	rm "$KernelFilepath"
 }
 Arch="amd64"
 LastKernelVersion=$(GetLastKernelVersion)
