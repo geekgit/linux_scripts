@@ -8,7 +8,6 @@ function TempPath {
 function GetLastKernelVersion {
 	Url="http://kernel.ubuntu.com/~kernel-ppa/mainline/"
 	ListFilepath="$(TempPath lkv)/$(uuidgen)-kernel-list.html"
-	echo "Temporary List File: '$ListFilepath'"
 	wget "$Url" -O "$ListFilepath" > /dev/null 2>&1
 	Link=$(grep -Po '(?<=href=")[^"]*' "$ListFilepath")
 	Kernel=$(echo $Link | tr " " "\n" | tail -n1)
@@ -21,7 +20,6 @@ function DownloadKernel {
 	Arch="$2"
 	Url="http://kernel.ubuntu.com/~kernel-ppa/mainline/$KernelVersion/"
 	KernelFilepath="$(TempPath dk)/$(uuidgen)-kernel.html"
-	echo "Temporary Kernel File: '$KernelFilepath'"
 	wget "$Url" -O "$KernelFilepath" > /dev/null 2>&1
 	echo "Parsing url '$Url' ..."
 	Link=$(grep -Po '(?<=href=")[^"]*' "$KernelFilepath")
