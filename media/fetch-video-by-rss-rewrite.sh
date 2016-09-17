@@ -8,6 +8,8 @@ ArchiveFolder="$2"
 LogFile="$3"
 
 mkdir -p "$ArchiveFolder"
+cd "$ArchiveFolder"
+rm *
 echo "$(date)" &> "$LogFile"
 
 Header="Accept: text/html"
@@ -16,9 +18,6 @@ UserAgent="$(/usr/local/bin/geekgit-generate-browser-user-agent)"
 echo "Header: $Header" &>> "$LogFile"
 echo "UserAgent: $UserAgent" &>> "$LogFile"
 echo "$RSSUrl -> $ArchiveFolder" &>> "$LogFile"
-
-cd "$ArchiveFolder"
-rm *
 
 wget --header="$Header" --user-agent="$UserAgent" "$RSSUrl" --secure-protocol=TLSv1_2 --https-only -O "rss.xml" &>> "$LogFile"
 
