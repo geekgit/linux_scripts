@@ -3,8 +3,9 @@ echo "gqrx setup"
 # PPA - wily only
 sudo add-apt-repository -y ppa:bladerf/bladerf
 sudo geekgit-tweak-custom-ppa ppa:bladerf/wily/bladerf
-# PPA - current version
+# PPA - wily only
 sudo add-apt-repository -y ppa:ettusresearch/uhd
+sudo geekgit-tweak-custom-ppa ppa:ettusresearch/wily/uhd
 # PPA - wily only
 sudo add-apt-repository -y ppa:myriadrf/drivers
 sudo geekgit-tweak-custom-ppa ppa:myriadrf/wily/drivers
