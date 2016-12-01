@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 2016-11-22 (YYYY-MM-DD)
+# Last update: 2016-12-01 (YYYY-MM-DD)
 function TempPath {
 	Tag="$1"
 	TempVar=$(mktemp -dt "$Tag-XXXXXXXX")
