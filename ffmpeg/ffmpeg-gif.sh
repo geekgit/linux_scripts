@@ -1,0 +1,21 @@
+#!/bin/bash
+ScaleFactor="240"
+FPSLimit="8"
+UUID=$(uuidgen) 
+InputFile="$1"
+BasenameFile=$(basename "$InputFile")
+FilenameWithoutExt="${BasenameFile%.*}"
+NewFilename="${FilenameWithoutExt}.gif"
+PaletteTempFile="${UUID}-palette.png"
+LogFile="${FilenameWithoutExt}.log"
+echo "$(date)" &>"${LogFile}"
+echo "ID: $UUID" &>>"${LogFile}"
+echo "Input File: $InputFile [$FilenameWithoutExt]" &>>"${LogFile}"
+echo "Palette File: $PaletteTempFile" &>>"${LogFile}"
+echo "Output File: $NewFilename" &>>"${LogFile}"
+echo "Log File: $LogFile" &>>"${LogFile}"
+echo "=== Step 1: Palette ===" &>>"${LogFile}"
+ffmpeg -y -i "${InputFile}" -vf fps=${FPSLimit},scale=${ScaleFactor}:-1:flags=lanczos,palettegen "${PaletteTempFile}" &>>"${LogFile}"
+echo "=== Step 2: GIF ===" &>>"${LogFile}"
+ffmpeg -i "${InputFile}" -i "${PaletteTempFile}" -filter_complex "fps=${FPSLimit},scale=${ScaleFactor}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${NewFilename}" &>>"${LogFile}"
+rm "$PaletteTempFile"
