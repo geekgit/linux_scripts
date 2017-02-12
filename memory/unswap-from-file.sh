@@ -1,4 +1,4 @@
 #!/bin/bash
 SwapFilePath="/file_swap"
-swapoff -a
-rm -f "${SwapFilePath}"
+sudo swapoff -a
+sudo rm -f "${SwapFilePath}"
