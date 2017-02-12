@@ -1,0 +1,10 @@
+#!/bin/bash
+SwapSize="16G"
+SwapFilePath="/file_swap"
+sudo fallocate -l "${SwapSize}" "${SwapFilePath}"
+sudo chown root:root "${SwapFilePath}"
+sudo chmod u+rw-x "${SwapFilePath}"
+sudo chmod g-rwx "${SwapFilePath}"
+sudo chmod o-rwx "${SwapFilePath}"
+sudo mkswap "${SwapFilePath}"
+sudo swapon "${SwapFilePath}"
