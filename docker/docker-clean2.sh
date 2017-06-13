@@ -6,7 +6,7 @@ for ImageId in $ImagesList
 do
 	echo "Image id: $ImageId"
 	docker images | grep "$ImageId"
-	cmd1="docker rmi $ImageId"
+	cmd1="docker rmi -f $ImageId"
 	echo $cmd1
 	$cmd1
 done
