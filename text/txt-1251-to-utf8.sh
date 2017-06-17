@@ -1,0 +1,4 @@
+#!/bin/bash
+File="$1"
+NewFile="${File%.*}.utf-8.txt"
+iconv -f CP1251 -t UTF-8 "${File}" > "${NewFile}"
