@@ -9,5 +9,5 @@ do
 	Extension="${Filename##*.}"
 	Plain="${Filename%.*}"
 	NewName="$Plain.mp3"
-	ffmpeg -i "$File" -vn -ar 44100 -ac 2 -ab 320k -f mp3 "NewName"
+	ffmpeg -i "$File" -vn -ar 44100 -ac 2 -ab 320k -f mp3 "${NewName}"
 done
