@@ -1,5 +1,5 @@
 #!/bin/bash
-ServerPort="443"
+ServerPort="8443"
 DockerPort="443"
 mkdir -p ~/mtproxy_official
 mkdir -p ~/mtproxy_official/proxy-config
