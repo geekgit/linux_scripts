@@ -4,11 +4,8 @@ Width="1920"
 Height="1080"
 ffmpegVer="3.4.4"
 ffmpegOpt="ffmpeg-$ffmpegVer-opt"
-echo "Files: $Files"
-echo "Loop.."
 for File in $Files
 do
-	echo "File: $File"
 	Filename=$(basename "$File")
 	Extension="${Filename##*.}"
 	Plain="${Filename%.*}"
