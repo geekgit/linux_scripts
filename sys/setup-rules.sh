@@ -9,5 +9,6 @@ sudo wget --secure-protocol=TLSv1_2 --https-only "https://raw.githubusercontent.
 sudo wget --secure-protocol=TLSv1_2 --https-only "https://raw.githubusercontent.com/geekgit/linux_configs/master/etc/udev/rules.d/06-huawei-e1550.rules" -O 06-huawei-e1550.rules
 sudo wget --secure-protocol=TLSv1_2 --https-only "https://raw.githubusercontent.com/geekgit/linux_configs/master/etc/udev/rules.d/07-huawei-e1550-modem-on.rules" -O 07-huawei-e1550-modem-on.rules
 sudo wget --secure-protocol=TLSv1_2 --https-only "https://raw.githubusercontent.com/geekgit/linux_configs/master/etc/udev/rules.d/08-phone-000.rules" -O 08-phone-000.rules
+sudo wget --secure-protocol=TLSv1_2 --https-only "https://raw.githubusercontent.com/geekgit/linux_configs/master/etc/udev/rules.d/10-block-ignore.rules" -O 10-block-ignore.rules
 
 
