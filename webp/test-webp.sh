@@ -1,6 +1,14 @@
 #!/bin/bash
-echo "i: $1" >> ~/test-webp.log
-echo "s: $2" >> ~/test-webp.log
-echo "s: $3" >> ~/test-webp.log
-echo "o: $4" >> ~/test-webp.log
-/usr/bin/dwebp $1 -scale $2 $3 -o $4
+Input="$1"
+Scale1="$2"
+Scale2="$3"
+Output="$4"
+echo "Input: ${Input}" >> ~/test-webp.log
+echo "Scale1: ${Scale1}" >> ~/test-webp.log
+echo "Scale2: ${Scale2}" >> ~/test-webp.log
+echo "Output: ${Output}" >> ~/test-webp.log
+/usr/bin/dwebp $Input -scale ${Scale1} ${Scale2} -o ${Output}
+InputType=$(file "${Input}")
+OutputType=$(file "${Output}")
+echo "Input file type: ${InputType}"
+echo "Output file type: ${OutputType}"
