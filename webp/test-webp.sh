@@ -10,5 +10,5 @@ echo "Output: ${Output}" >> ~/test-webp.log
 /usr/bin/dwebp $Input -scale ${Scale1} ${Scale2} -o ${Output}
 InputType=$(file "${Input}")
 OutputType=$(file "${Output}")
-echo "Input file type: ${InputType}"
-echo "Output file type: ${OutputType}"
+echo "Input file type: ${InputType}" >> ~/test-webp.log
+echo "Output file type: ${OutputType}" >> ~/test-webp.log
