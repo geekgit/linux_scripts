@@ -9,7 +9,7 @@ do
 	if [ -d "${FullPath}" ]; then
 		echo "${FullPath}"
 		cd "${FullPath}"
-		cp "${HOME}/git/firefox/stable/prefs.js" .
+		cp "${HOME}/git/firefox/stable-mini/prefs.js" .
 		cd "${MozPath}" 		
 	fi
 done
