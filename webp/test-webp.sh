@@ -6,7 +6,7 @@ Output="$4"
 Info=$(/usr/bin/cwebp "${Input}" 2>&1)
 Dimension=$(/usr/bin/cwebp "${Input}" 2>&1 | grep "Dimension:" | awk -F: '{print $2}')
 Size1=$(echo "${Dimension}" | awk -Fx '{print $1}' | xargs)
-Size2=$(echo "${Dimension}" | awk -Fx '{print $2}' | xargs)
+Size2=$(echo "${Dimension}" | awk -Fx '{print $2}' | xargs | awk -F( '{print $1}' | xargs)
 echo "Input: ${Input}" >> ~/test-webp.log
 echo "Scale1: ${Scale1}" >> ~/test-webp.log
 echo "Scale2: ${Scale2}" >> ~/test-webp.log
