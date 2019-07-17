@@ -15,7 +15,9 @@ echo "Dimension: ${Dimension}" >> ~/test-webp.log
 echo "Size1: ${Size1}" >> ~/test-webp.log
 echo "Size2: ${Size2}" >> ~/test-webp.log
 echo "Info: ${Info}" >> ~/test-webp.log
-/usr/bin/dwebp "${Input}" -scale ${Scale1} ${Scale2} -o "${Output}"
+#/usr/bin/dwebp "${Input}" -scale ${Scale1} ${Scale2} -o "${Output}"
+/usr/bin/dwebp "${Input}" -o "${Output}"
+/usr/bin/mogrify -resize "${Scale1}x${Scale2}" "${Output}"
 InputType=$(file "${Input}")
 OutputType=$(file "${Output}")
 echo "Input file type: ${InputType}" >> ~/test-webp.log
