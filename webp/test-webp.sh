@@ -3,8 +3,8 @@ Input="$1"
 Scale1="$2"
 Scale2="$3"
 Output="$4"
-Info=$(/usr/bin/cwebp "${Input}")
-Dimension=$(/usr/bin/cwebp "${Input}" | grep "Dimension:" | awk -F: '{print $2}')
+Info=$(/usr/bin/cwebp "${Input}" 2>&1)
+Dimension=$(/usr/bin/cwebp "${Input}" 2>&1 | grep "Dimension:" | awk -F: '{print $2}')
 Size1=$(echo "${Dimension}" | awk -Fx '{print $1}' | xargs)
 Size2=$(echo "${Dimension}" | awk -Fx '{print $2}' | xargs)
 echo "Input: ${Input}" >> ~/test-webp.log
