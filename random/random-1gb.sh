@@ -15,7 +15,7 @@ random_file() {
 	OpensslQ="$3"
 	OpensslSize=$(( 2**$OpensslQ ))
 	echo "${Size} random -> ${Filename}..."
-	echo "openssl rand -base64 "${OpensslSize}" | dd of="${Filename}" bs="${Size}" count=1"
+	echo "openssl rand -base64 "${OpensslSize}" | dd of="${Filename}" bs="${Size}" count=1 iflag=fullblock"
 	openssl rand -base64 "${OpensslSize}" | dd of="${Filename}" bs="${Size}" count=1 iflag=fullblock
 }
 
