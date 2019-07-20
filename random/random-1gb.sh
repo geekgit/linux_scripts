@@ -1,6 +1,7 @@
 #!/bin/bash
 random_loop() {
 	Limit=$1
+	echo "Limit: ${Limit}"
 	for Index in $(seq 1 $Limit)
 	do
 		echo "${Index}/${Limit}..."
@@ -16,10 +17,13 @@ random_file() {
 }
 
 Iterations="$1"
+echo "Iterations: ${Iterations}"
 
 if ! [[ $Iterations =~ '^[0-9]+$' ]]
 then
+	echo "?"
 	random_loop 1
 else
+	echo "!"
 	random_loop "${Iterations}"
 fi
