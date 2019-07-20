@@ -6,14 +6,16 @@ random_loop() {
 	do
 		echo "${Index}/${Limit}..."
 		Filename="${Index}.bin"
-		random_file "${Filename}" "1G"
+		random_file "${Filename}" "1G" "30"
 	done
 }
 random_file() {
 	Filename="$1"
 	Size="$2"
-	echo "1gb random -> ${Filename}..."
-	dd if=$(openssl rand -base64 1000) | dd of="${Filename}" bs="${Size}" count=1
+	OpensslQ="$3"
+	OpensslSize=$(( 2**$OpensslQ ))
+	echo "${Size} random -> ${Filename}..."
+	openssl rand -base64 "${OpensslSize}" | dd of="${Filename}" bs="${Size}" count=1
 }
 
 Iterations="$1"
