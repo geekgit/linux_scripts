@@ -17,13 +17,6 @@ random_file() {
 }
 
 Iterations="$1"
-echo "Iterations: ${Iterations}"
+random_loop "${Iterations}"
 
-if ! [[ $Iterations =~ '^[0-9]+$' ]]
-then
-	echo "?"
-	random_loop 1
-else
-	echo "!"
-	random_loop "${Iterations}"
-fi
+
