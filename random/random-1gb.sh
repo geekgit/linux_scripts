@@ -13,7 +13,7 @@ random_file() {
 	Filename="$1"
 	Size="$2"
 	echo "1gb random -> ${Filename}..."
-	openssl rand -base64 1000 | dd of="${Filename}" bs="${Size}" count=1
+	dd if=$(openssl rand -base64 1000) | dd of="${Filename}" bs="${Size}" count=1
 }
 
 Iterations="$1"
