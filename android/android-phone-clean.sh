@@ -1,6 +1,6 @@
 #!/bin/bash
 adb shell pm uninstall -k --user 0 com.android.stk
-adb shell pm uninstall -k --user 0 com.asus.calculator
+#adb shell pm uninstall -k --user 0 com.asus.calculator
 adb shell pm uninstall -k --user 0 com.asus.ia.asusapp
 adb shell pm uninstall -k --user 0 com.asus.soundrecorder
 adb shell pm uninstall -k --user 0 com.facebook.appmanager
@@ -9,7 +9,7 @@ adb shell pm uninstall -k --user 0 com.facebook.orca
 adb shell pm uninstall -k --user 0 com.facebook.system
 adb shell pm uninstall -k --user 0 com.generalmobi.go2pay
 adb shell pm uninstall -k --user 0 com.google.android.apps.docs
-adb shell pm uninstall -k --user 0 com.google.android.apps.messaging
+#adb shell pm uninstall -k --user 0 com.google.android.apps.messaging
 adb shell pm uninstall -k --user 0 com.google.android.apps.photos
 adb shell pm uninstall -k --user 0 com.google.android.apps.tachyon
 adb shell pm uninstall -k --user 0 com.google.android.calendar
