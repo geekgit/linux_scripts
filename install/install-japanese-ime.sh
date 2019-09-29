@@ -6,7 +6,7 @@ write_locale_jp() {
 	sudo su -c 'echo "ja_JP SJIS" >> ja'
 	sudo su -c 'echo "ja_JP.EUC-JP EUC-JP" >> ja'
 	sudo dpkg-reconfigure --frontend noninteractive locales
-	sudo dpkg-reconfigure --frontend noninteractive locales
+	#sudo dpkg-reconfigure --frontend noninteractive locales
 }
 install_fonts() {
 	sudo su -c 'echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections'
