@@ -27,4 +27,4 @@ ls -l
 echo "apt-get install -fy..."
 sudo apt-get install -fy
 cd "${CurrPath}"
-#rm -rf "${TmpPath}"
+rm -rf "${TmpPath}"
