@@ -24,6 +24,7 @@ check 10-block-ignore.rules
 check 11-nakasi-debug.rules
 check 12-nakasi-fastboot.rules
 
+UuidgenFile="$(which uuidgen)"
 if test -f "${UuidgenFile}"
 then
 	CurrPath="${PWD}"
