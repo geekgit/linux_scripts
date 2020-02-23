@@ -31,7 +31,10 @@ then
 	mkdir -p "${TmpPath}"
 	cd "${TmpPath}"
 	git clone "https://github.com/geekgit/linux_configs"
+	echo "${PWD}"
 	cd ./linux_configs/etc/udev/rules.d/
+	echo "${PWD}"
+	ls -l
 	sudo cp *.rules /etc/udev/rules.d/
 	cd "${CurrPath}"
 	rm -rf "${TmpPath}"
