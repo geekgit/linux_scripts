@@ -2,7 +2,7 @@
 Files="$@"
 Width="1920"
 Height="1080"
-ffmpegVer="4.0.2"
+ffmpegVer="4.2.2"
 ffmpegOpt="ffmpeg-$ffmpegVer-opt"
 echo "Files: $Files"
 echo "Loop.."
