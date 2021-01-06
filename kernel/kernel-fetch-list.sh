@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 2016-12-01 (YYYY-MM-DD)
+# Last update: 2021-01-06 (YYYY-MM-DD)
 function TempPath {
 	Tag="$1"
 	TempVar=$(mktemp -dt "$Tag-XXXXXXXX")
@@ -14,4 +14,4 @@ function GetKernelList {
 	echo "$Vs"
 }
 echo "$(GetKernelList)" > "$HOME/kernel-list-parsed.txt"
-cat "$HOME/kernel-list-parsed.txt"
+#cat "$HOME/kernel-list-parsed.txt"
