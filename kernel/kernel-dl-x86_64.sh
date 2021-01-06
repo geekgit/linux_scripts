@@ -1,5 +1,5 @@
 #!/bin/bash
-# Last update: 2016-12-01 (YYYY-MM-DD)
+# Last update: 2021-01-06 (YYYY-MM-DD)
 function TempPath {
 	Tag="$1"
 	TempVar=$(mktemp -dt "$Tag-XXXXXXXX")
@@ -8,9 +8,9 @@ function TempPath {
 function DownloadKernel {
 	KernelVersion="$1"
 	Arch="$2"
-	Url="http://kernel.ubuntu.com/~kernel-ppa/mainline/$KernelVersion/"
+	Url="https://kernel.ubuntu.com/~kernel-ppa/mainline/$KernelVersion/"
 	KernelFilepath="$(TempPath dk)/$(uuidgen)-kernel.html"
-	wget "$Url" -O "$KernelFilepath" > /dev/null 2>&1
+	wget --secure-protocol=TLSv1_2 --https-only "$Url" -O "$KernelFilepath" > /dev/null 2>&1
 	echo "Parsing url '$Url' ..."
 	Link=$(grep -Po '(?<=href=")[^"]*' "$KernelFilepath")
 	GenericArchLink=$(echo $Link | tr " " "\n" | sort | uniq | sort | grep deb | grep "$Arch" | grep generic | tr "\n" " ")
@@ -23,7 +23,7 @@ function DownloadKernel {
 	do
 		AbsoluteUrl="$Url$CurrentLink"
 		echo "Saving $AbsoluteUrl as $OutputFolder/$CurrentLink..."
-		wget "$AbsoluteUrl" -P "$OutputFolder"
+		wget --secure-protocol=TLSv1_2 --https-only "$AbsoluteUrl" -P "$OutputFolder"
 	done
 	cd "$OutputFolder"
 	geekgit-key-import-ubuntu-kernel
