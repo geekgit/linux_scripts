@@ -11,6 +11,6 @@ do
 	chdman createcd -i "${Filename}" -o "${Plain}.chd"
 	echo "${Plain}.chd" >> "${Basename}.m3u"
 done
-
+echo ""
 echo "${Basename}.m3u:"
 cat "${Basename}.m3u"
