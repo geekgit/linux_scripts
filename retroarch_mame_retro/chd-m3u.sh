@@ -2,15 +2,29 @@
 CurrPath=$(pwd)
 Basename=${CurrPath##*/}
 Files="$@"
-echo -n "" > "${Basename}.m3u"
+Count="$#"
+echo "${Count}"
+
+if [[ "${Count}" -eq 0 ]]; then
+	exit
+fi
+
+if [[ "${Count}" -gt 1 ]]; then 
+	echo -n "" > "${Basename}.m3u"
+fi
 for File in $Files
 do
 	Filename=$(basename "$File")
 	Extension="${Filename##*.}"
 	Plain="${Filename%.*}"
-	chdman createcd -i "${Filename}" -o "${Plain}.chd"
-	echo "${Plain}.chd" >> "${Basename}.m3u"
+	chdman createcd -np $(nproc) -f -i "${Filename}" -o "${Plain}.chd"
+	if [[ "${Count}" -gt 1 ]]; then 
+		echo "${Plain}.chd" >> "${Basename}.m3u"
+	fi
 done
-echo ""
-echo "${Basename}.m3u:"
-cat "${Basename}.m3u"
+if [[ "${Count}" -gt 1 ]]; then 
+	echo ""
+	echo "${Basename}.m3u:"
+	cat "${Basename}.m3u"
+fi
+
