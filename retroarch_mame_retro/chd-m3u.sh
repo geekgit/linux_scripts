@@ -2,7 +2,7 @@
 CurrPath=$(pwd)
 Basename=${CurrPath##*/}
 Files="$@"
-echo "" > "${Basename}.m3u"
+echo -n "" > "${Basename}.m3u"
 for File in $Files
 do
 	Filename=$(basename "$File")
