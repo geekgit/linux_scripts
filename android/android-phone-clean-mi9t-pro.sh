@@ -28,6 +28,7 @@ adb_uninstall_xiaomi com.mi.android.personalassistant
 adb_uninstall_xiaomi com.miui.bugreport
 # SIM Menu
 adb_uninstall_xiaomi com.android.stk
+adb_uninstall_xiaomi com.android.simappdialog
 # Analytics, ads
 adb_uninstall_xiaomi com.miui.analytics
 adb_uninstall_xiaomi com.xiaomi.joyose
