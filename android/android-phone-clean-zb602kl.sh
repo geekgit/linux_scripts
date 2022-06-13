@@ -3,9 +3,9 @@ adb_uninstall_asus() {
 	ApkName="$1"
 	adb shell pm uninstall -k --user 0 "${ApkName}"
 }
-adb_uninstall_asus com.android.stk
 #
 adb_uninstall_asus com.android.stk
+adb_uninstall_asus com.android.simappdialog
 #adb_uninstall_asus com.asus.calculator
 adb_uninstall_asus com.asus.ia.asusapp
 adb_uninstall_asus com.asus.soundrecorder
@@ -30,4 +30,3 @@ adb_uninstall_asus com.shopee.id
 adb_uninstall_asus com.yandex.browser
 adb_uninstall_asus id.co.babe
 adb_uninstall_asus ru.yandex.searchplugin
-
