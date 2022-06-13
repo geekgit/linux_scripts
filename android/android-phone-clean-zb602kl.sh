@@ -1,7 +1,9 @@
 #!/bin/bash
 adb_uninstall_asus() {
 	ApkName="$1"
+	echo "$1:"
 	adb shell pm uninstall -k --user 0 "${ApkName}"
+	echo "==="
 }
 #
 adb_uninstall_asus com.android.stk
