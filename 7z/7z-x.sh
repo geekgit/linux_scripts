@@ -1,6 +1,15 @@
 #!/bin/bash
-File="$1"
-Filename=$(basename "$File")
-Extension="${Filename##*.}"
-Plain="${Filename%.*}"
-7z x "${Filename}" "-o${Plain}"
+number_of_args="$#"
+if [ "$number_of_args" -ge "1" ];
+then
+	for file in "$@"
+	do
+		if [ -r "$file" ];
+		then
+			echo "Extract '$file'..."
+			7z x "${file}"
+		else
+			echo "'$file' not exist or not readable"
+		fi
+	done
+fi
