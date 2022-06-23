@@ -2,13 +2,18 @@
 ### update
 sudo apt-get update
 sudo apt-get upgrade -y
+sudo apt-get install -y snapd
 sudo snap refresh
 sudo apt-get install -y curl wget
+sudo apt-get install -y flatpak
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ### install
 # retroarch - The official reference frontend for the libretro API
 sudo apt-get install -y retroarch
 # mame -  MAME is a hardware emulator. it faithfully reproduces the behaviour of many arcade machines
 sudo apt-get install -y mame mame-tools mame-data mame-extra
+# nestopia - Nintendo Entertainment System/Famicom emulator
+sudo apt-get install -y nestopia
 # ppsspp - PPSSPP is a PSP emulator that can run games at full HD resolution
 sudo snap install --stable ppsspp-emu
 # epsxe - ePSXe (enhanced PSX emulator) is a PlayStation video game console emulator for x86-based PC hardware with Microsoft Windows or Linux, as well as devices running Android
@@ -29,8 +34,17 @@ sudo snap install --edge mgba
 sudo snap install --edge dolphin-emulator
 # yuzu - yuzu is an experimental open-source emulator for the Nintendo Switch from the creators of Citra.
 sudo snap install --stable yuzu
+# citra - Citra is an experimental open-source Nintendo 3DS emulator/debugger written in C++.
+sudo snap install --stable citra-emu
 # pcsx2 - PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's hardware, using a combination of MIPS CPU Interpreters, Recompilers and a Virtual Machine which manages hardware states and PS2 system memory.
 pcsx2url=$(curl -s "https://api.github.com/repos/PCSX2/pcsx2/releases" | grep "browser_download_url" | grep "linux-AppImage-64bit-wxWidgets.AppImage" | awk -F\" '{print $4}' | sort -r | head -n1)
 mkdir -p "$HOME/pcsx2"
-wget  --secure-protocol=TLSv1_3 --https-only  "${pcsx2url}" -P "$HOME/pcsx2"
+wget  --secure-protocol=TLSv1_3 --https-only "${pcsx2url}" -P "$HOME/pcsx2"
 chmod a+rx-w "$HOME/pcsx2/"*.AppImage
+# blastem - BlastEm is an open source, higly accurate emulator for the Genesis/Megadrive that runs on modest hardware.
+blastemurl="https://www.retrodev.com/blastem/blastem64-0.6.2.tar.gz"
+mkdir -p "$HOME/blastem"
+wget  --secure-protocol=TLSv1_2 --https-only "${blastemurl}" -P "$HOME/blastem"
+tar -xvzf "$HOME/blastem/blastem64-0.6.2.tar.gz" -C "$HOME/blastem"
+# snes9x - Snes9x is a portable, freeware Super Nintendo Entertainment System (SNES) emulator.
+sudo flatpak install -y flathub com.snes9x.Snes9x
