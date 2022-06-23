@@ -3,6 +3,7 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo snap refresh
+sudo apt-get install -y curl wget
 ### install
 # retroarch - The official reference frontend for the libretro API
 sudo apt-get install -y retroarch
