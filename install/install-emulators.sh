@@ -1,10 +1,11 @@
 #!/bin/bash
 ### update
+sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y snapd
 sudo snap refresh
-sudo apt-get install -y curl wget
+sudo apt-get install -y curl wget git tar p7zip p7zip-full p7zip-rar unrar unzip
 sudo apt-get install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak update
@@ -51,6 +52,11 @@ blastemurl="https://www.retrodev.com/blastem/blastem64-0.6.2.tar.gz"
 mkdir -p "$HOME/blastem"
 wget  --secure-protocol=TLSv1_2 --https-only "${blastemurl}" -P "$HOME/blastem"
 tar -xvzf "$HOME/blastem/blastem64-0.6.2.tar.gz" -C "$HOME/blastem"
+# Mesen 0.9.9 - Mesen is a cross-platform NES/Famicom emulator for Windows & Linux built in C++ and C#.
+mkdir -p "$HOME/mesen_0.9.9"
+wget  --secure-protocol=TLSv1_3 --https-only "https://github.com/SourMesen/Mesen/releases/download/0.9.9/Mesen.0.9.9.zip" -P "$HOME/mesen_0.9.9"
+7z x "$HOME/mesen_0.9.9/Mesen.0.9.9.zip" -o"$HOME/mesen_0.9.9"
+rm "$HOME/mesen_0.9.9/Mesen.0.9.9.zip"
 # snes9x - Snes9x is a portable, freeware Super Nintendo Entertainment System (SNES) emulator.
 sudo flatpak install -y flathub com.snes9x.Snes9x
 # bsnes - bsnes is a Super Nintendo emulator with 100% compatibility, focusing on features and ease of use.
