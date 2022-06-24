@@ -52,6 +52,7 @@ blastemurl="https://www.retrodev.com/blastem/blastem64-0.6.2.tar.gz"
 mkdir -p "$HOME/blastem"
 wget  --secure-protocol=TLSv1_2 --https-only "${blastemurl}" -P "$HOME/blastem"
 tar -xvzf "$HOME/blastem/blastem64-0.6.2.tar.gz" -C "$HOME/blastem"
+rm "$HOME/blastem/blastem64-0.6.2.tar.gz"
 # Mesen 0.9.9 - Mesen is a cross-platform NES/Famicom emulator for Windows & Linux built in C++ and C#.
 mkdir -p "$HOME/mesen_0.9.9"
 wget  --secure-protocol=TLSv1_3 --https-only "https://github.com/SourMesen/Mesen/releases/download/0.9.9/Mesen.0.9.9.zip" -P "$HOME/mesen_0.9.9"
