@@ -7,6 +7,7 @@ sudo snap refresh
 sudo apt-get install -y curl wget
 sudo apt-get install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak update
 ### install
 # retroarch - The official reference frontend for the libretro API
 sudo apt-get install -y retroarch
@@ -14,6 +15,10 @@ sudo apt-get install -y retroarch
 sudo apt-get install -y mame mame-tools mame-data mame-extra
 # nestopia - Nintendo Entertainment System/Famicom emulator
 sudo apt-get install -y nestopia
+# zsnes - Emulator of the Super Nintendo Entertainment System
+sudo apt-get install -y zsnes
+# higan - Accurate multi-system emulator
+sudo apt-get install -y higan
 # ppsspp - PPSSPP is a PSP emulator that can run games at full HD resolution
 sudo snap install --stable ppsspp-emu
 # epsxe - ePSXe (enhanced PSX emulator) is a PlayStation video game console emulator for x86-based PC hardware with Microsoft Windows or Linux, as well as devices running Android
@@ -48,3 +53,21 @@ wget  --secure-protocol=TLSv1_2 --https-only "${blastemurl}" -P "$HOME/blastem"
 tar -xvzf "$HOME/blastem/blastem64-0.6.2.tar.gz" -C "$HOME/blastem"
 # snes9x - Snes9x is a portable, freeware Super Nintendo Entertainment System (SNES) emulator.
 sudo flatpak install -y flathub com.snes9x.Snes9x
+# bsnes - bsnes is a Super Nintendo emulator with 100% compatibility, focusing on features and ease of use.
+sudo flatpak install -y flathub dev.bsnes.bsnes
+# ares - ares is a cross-platform, open source, multi-system emulator, focusing on accuracy and preservation.
+sudo flatpak install -y flathub dev.ares.ares
+# Kega Fusion - An emulator for Sega 8 and 16-bit consoles
+sudo flatpak install -y flathub com.carpeludum.KegaFusion
+# GB Enhanced+ - A Game Boy (Color, Advance) emulator
+sudo flatpak install -y flathub com.github.shonumi.gbe-plus
+# DOSBox-X - DOSBox-X is an open-source DOS emulator for running DOS games and applications. DOS-based Windows such as Windows 3.x and Windows 9x are officially supported. Compared to DOSBox, DOSBox-X is much more flexible and provides more features.
+sudo flatpak install -y flathub com.dosbox_x.DOSBox-X
+# xemu - Original Xbox Emulator.
+sudo flatpak install -y flathub app.xemu.xemu
+# Ryujinx - A Nintendo Switch Emulator.
+sudo flatpak install -y flathub org.ryujinx.Ryujinx
+# Mednaffe - A front-end (GUI) for mednafen emulator (included)
+sudo flatpak install -y flathub com.github.AmatCoder.mednaffe
+# DuckStation - PlayStation 1/PSX emulator.
+sudo flatpak install -y org.duckstation.DuckStation
