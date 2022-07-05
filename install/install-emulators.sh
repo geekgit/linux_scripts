@@ -20,6 +20,10 @@ sudo apt-get install -y nestopia
 sudo apt-get install -y zsnes
 # higan - Accurate multi-system emulator
 sudo apt-get install -y higan
+# blastem - Fast and accurate Genesis emulator
+sudo apt-get install -y blastem
+# mednafen - multi-platform emulator, including NES, GB/A, Lynx, PC Engine
+sudo apt-get install -y mednafen
 # ppsspp - PPSSPP is a PSP emulator that can run games at full HD resolution
 sudo snap install --stable ppsspp-emu
 # epsxe - ePSXe (enhanced PSX emulator) is a PlayStation video game console emulator for x86-based PC hardware with Microsoft Windows or Linux, as well as devices running Android
@@ -78,3 +82,7 @@ sudo flatpak install -y flathub org.ryujinx.Ryujinx
 sudo flatpak install -y flathub com.github.AmatCoder.mednaffe
 # DuckStation - PlayStation 1/PSX emulator.
 sudo flatpak install -y org.duckstation.DuckStation
+# sdlmame
+sudo add-apt-repository -y ppa:c.falco/mame
+sudo apt-get update
+sudo apt-get install -y mame mame-tools mame-data mame-extra
