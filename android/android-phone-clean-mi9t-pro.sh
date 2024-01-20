@@ -5,6 +5,12 @@ adb_uninstall_xiaomi() {
 	adb shell pm uninstall -k --user 0 "${ApkName}"
 	echo "==="
 }
+adb_disable_xiaomi() {
+	ApkName="$1"
+	echo "$1:"
+	adb shell pm disable-user "${ApkName}"
+	echo "==="
+}
 # Power
 #adb_uninstall_xiaomi com.miui.powerkeeper
 # Security
@@ -46,7 +52,6 @@ adb_uninstall_xiaomi ru.yandex.searchplugin
 adb_uninstall_xiaomi com.allgoritm.youla
 adb_uninstall_xiaomi com.yandex.zen
 # more oem
-adb_uninstall_xiaomi com.mi.globalbrowser
 adb_uninstall_xiaomi com.miui.miservice
 adb_uninstall_xiaomi com.miui.compass
 adb_uninstall_xiaomi com.xiaomi.scanner
@@ -71,3 +76,7 @@ adb_uninstall_xiaomi com.google.android.youtube
 adb_uninstall_xiaomi com.android.chrome
 adb_uninstall_xiaomi com.android.thememanager
 adb_uninstall_xiaomi com.android.thememanager.module
+# Mi Share
+adb_uninstall_xiaomi com.miui.mishare.connectivity
+# Mi Browser
+adb_disable_xiaomi com.mi.globalbrowser
