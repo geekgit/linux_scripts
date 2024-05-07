@@ -1,3 +1,3 @@
 #!/bin/bash
 Batch="$1"
-aria2c -x 16 -s 16 --file-allocation=none --input-file="${Batch}"
+aria2c -x 16 -s 16 --file-allocation=none --enable-dht false --enable-peer-exchange false --follow-torrent=false --follow-metalink=false --input-file="${Batch}"
