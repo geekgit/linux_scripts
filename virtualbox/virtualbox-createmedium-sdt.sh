@@ -1,2 +1,2 @@
 #!/bin/bash
-VBoxManage.exe createmedium --filename sdt.vmdk --variant rawdisk --format=vmdk --property rawdrive=/dev/sdt
+VBoxManage.exe createmedium --filename sdt.vmdk --variant rawdisk --format=VMDK --property RawDrive=/dev/sdt
