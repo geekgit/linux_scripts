@@ -16,6 +16,4 @@ do
 	geekgit-binary-SelectBestCop "${LogName}" > "${CropName}"
 	Crop=$(cat "${CropName}" | head)
 	ffmpeg -i "${File}" -vf "${Crop}" -acodec copy "${NewNameCrop}"
-	rm "${LogName}"
-	rm "${CropName}"
 done
