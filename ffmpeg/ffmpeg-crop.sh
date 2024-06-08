@@ -13,7 +13,7 @@ do
 	LogName="vfcrop_log_${Random}.txt"
 	CropName="crop_${Random}.txt"
 	ffmpeg -i "${File}" -vf cropdetect -f null - 2>"${LogName}"
-	geekgit-binary-SelectBestCop "${LogName}" > "${CropName}"
+	geekgit-binary-SelectBestCrop "${LogName}" > "${CropName}"
 	Crop=$(cat "${CropName}" | head)
 	ffmpeg -i "${File}" -vf "${Crop}" -acodec copy "${NewNameCrop}"
 done
