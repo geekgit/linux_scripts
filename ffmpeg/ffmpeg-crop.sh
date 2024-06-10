@@ -15,5 +15,5 @@ do
 	ffmpeg -i "${File}" -vf cropdetect -f null - 2>"${LogName}"
 	geekgit-binary-SelectBestCrop "${LogName}" > "${CropName}"
 	Crop=$(cat "${CropName}" | head)
-	ffmpeg -i "${File}" -vf "${Crop}" -acodec copy "${NewNameCrop}"
+	ffmpeg -i "${File}" -c:v libx264 -crf 18 -preset veryslow -vf "${Crop}" -acodec copy "${NewNameCrop}"
 done
