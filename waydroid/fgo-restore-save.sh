@@ -1,0 +1,17 @@
+#!/bin/bash
+SavePath="$HOME/.local/share/waydroid/data/media/0/Android/data/com.aniplex.fategrandorder.en/files/data"
+BackupPath=$(pwd)
+echo "Save path: ${SavePath}"
+echo "Backup path: ${BackupPath}"
+sudo cp -v "${BackupPath}/54cc790bf952ea710ed7e8be08049531" "${SavePath}"
+sudo cp -v "${BackupPath}/644b05165c512739dc5e70ad513548fe" "${SavePath}"
+sudo cp -v "${BackupPath}/969b46577f365fadeb79ef14cf5d6370" "${SavePath}"
+sudo cp -v "${BackupPath}/e1a9f8e0ff970cc15b1a1d1e31d146db" "${SavePath}"
+sudo chmod a+rwx "${SavePath}/54cc790bf952ea710ed7e8be08049531"
+sudo chown root:1078 "${SavePath}/54cc790bf952ea710ed7e8be08049531"
+sudo chmod a+rwx "${SavePath}/644b05165c512739dc5e70ad513548fe"
+sudo chown root:1078 "${SavePath}/644b05165c512739dc5e70ad513548fe"
+sudo chmod a+rwx "${SavePath}/969b46577f365fadeb79ef14cf5d6370"
+sudo chown root:1078 "${SavePath}/969b46577f365fadeb79ef14cf5d6370"
+sudo chmod a+rwx "${SavePath}/e1a9f8e0ff970cc15b1a1d1e31d146db"
+sudo chown root:1078 "${SavePath}/e1a9f8e0ff970cc15b1a1d1e31d146db"
