@@ -5,7 +5,7 @@ sudo apt-get install -y git curl
 UuidgenFile="$(which uuidgen)"
 if test -f "${UuidgenFile}"
 then
-		TmpPath="/tmp/encrypted-client-hello-$uuidgen"
+		TmpPath="/tmp/encrypted-client-hello-$(uuidgen)"
 		echo "${TmpPath}"
 		mkdir -p "${TmpPath}"
 		cd "${TmpPath}"
