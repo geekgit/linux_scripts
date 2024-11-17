@@ -19,6 +19,12 @@ then
 		sudo cp ./etc/opt/chromium-browser/policies/managed/ech-disabled.json /etc/opt/chromium-browser/policies/managed/ech-disabled.json
 		sudo mkdir -p /etc/opt/brave/policies/managed/
 		sudo cp ./etc/opt/brave/policies/managed/ech-disabled.json /etc/opt/brave/policies/managed/ech-disabled.json
+		sudo mkdir -p /etc/chromium/policies/managed/
+		sudo cp ./etc/chromium/policies/managed/ech-disabled.json /etc/chromium/policies/managed/ech-disabled.json
+		sudo mkdir -p /etc/chromium-browser/policies/managed/
+		sudo cp ./etc/chromium-browser/policies/managed/ech-disabled.json /etc/chromium-browser/policies/managed/ech-disabled.json
+		sudo mkdir -p /etc/brave/policies/managed/
+		sudo cp ./etc/brave/policies/managed/ech-disabled.json /etc/brave/policies/managed/ech-disabled.json
 		cd "${CurrPath}"
 		rm -rf "${TmpPath}"
 		exit 0
